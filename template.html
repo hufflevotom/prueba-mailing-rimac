@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mailing</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #cbcbcb;
+      }
+      main {
+        background-color: #ffffff;
+        width: 600px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      header > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        width: 90%;
+        height: 32px;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 16px;
+      }
+      header > div > a {
+        margin-left: 5px;
+        color: black;
+      }
+      section {
+        background-color: #f8f9ff;
+      }
+      .bienvenida {
+        background-image: url("bg-hero-colors-primary-dsk.png");
+        background-repeat: no-repeat;
+      }
+      .bienvenida > .logo {
+        padding: 16px 60px;
+      }
+      .bienvenida > h3 {
+        width: 100%;
+        padding-top: 43px;
+        font-family: "BR Sonoma" Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        text-align: center;
+        line-height: 10px;
+      }
+      .bienvenida > h1 {
+        width: 100%;
+        font-family: "BR Sonoma" Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 52px;
+        text-align: center;
+        line-height: 10px;
+      }
+      .bienvenida > h5 {
+        width: 100%;
+        font-family: "BR Sonoma" Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        text-align: center;
+        line-height: 25px;
+      }
+      .bienvenida > div {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .bienvenida > div > a {
+        padding: 14px 32px;
+        background: linear-gradient(86.01deg, #ff6700 0%, #ff00b1 100%);
+        border-radius: 24px;
+        border: none;
+        color: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 20px;
+        text-decoration: none;
+      }
+      .bienvenida > div > a:hover {
+        cursor: pointer;
+      }
+      .bienvenida > .persona {
+        width: 100%;
+        padding: 45px 0;
+      }
+      .beneficios {
+        padding: 0 60px;
+      }
+      .beneficios > h4 {
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 5px;
+      }
+      .beneficios > p {
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+      }
+      .beneficios > ul {
+        padding: 32px 0 40px 0;
+        margin: 0;
+        list-style: none;
+      }
+      .beneficios > ul > li {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 0 16px 0;
+      }
+      .beneficios > ul > li > img {
+        padding-right: 16px;
+      }
+      hr {
+        width: 100%;
+        border: 1px solid #ccd1ee;
+      }
+      .poliza {
+        padding: 0 60px;
+      }
+      .poliza > h4 {
+        margin-top: 50px;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 5px;
+        letter-spacing: 0.2px;
+      }
+      .poliza > p {
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+      }
+      .poliza > ul {
+        padding: 32px 0 40px 0;
+        margin: 0;
+        list-style: none;
+      }
+      .poliza > ul > li {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 0 24px 0;
+      }
+      .poliza > ul > li > a {
+        text-decoration: none;
+        font-family: "BR Sonoma", Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .poliza > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 16px 20px;
+        background-color: #edf0ff;
+        border-radius: 16px;
+        margin-bottom: 40px;
+      }
+      .poliza > div > img {
+        padding-right: 10px;
+        height: 100%;
+        align-self: self-start;
+      }
+      .poliza > div > p {
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 0;
+        margin: 0;
+      }
+      .debito {
+        padding: 0 60px;
+      }
+      .debito > div {
+        padding: 40px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .debito > div > img {
+        padding-right: 10px;
+        height: 48px;
+        align-self: self-start;
+      }
+      .debito > div > div > h4 {
+        margin: 0;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+      }
+      .debito > div > div > p {
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      .app {
+        padding: 40px 60px 48px 60px;
+      }
+      .app > div {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 24px;
+        overflow: hidden;
+        background-image: url("blur.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .app > div > div {
+        width: 100%;
+        padding: 32px 16px 32px 32px;
+      }
+      .app > div > div > h4 {
+        margin: 0;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+      }
+      .app > div > div > h4 > span {
+        color: #f7052d;
+      }
+      .app > div > div > p {
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      .app > div > div > div {
+        padding: 16px 0 0 0;
+      }
+      .app > div > div > div > a {
+        color: #ffffff;
+        background-color: #0a051e;
+        text-decoration: none;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 12px 35px;
+        border-radius: 24px;
+      }
+      footer {
+        padding: 0 60px;
+        background: #e7eafd;
+      }
+      footer hr {
+        border: 1px solid #ccd1ee;
+      }
+      footer > h4 {
+        margin: 48px 0 0 0;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      footer > .opciones_descarga {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        gap: 16px;
+        padding: 24px 0 32px 0;
+        margin: 0;
+        list-style: none;
+      }
+      footer > .opciones_descarga > li {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        gap: 16px;
+      }
+      footer > .opciones_descarga > li > a {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        gap: 16px;
+        text-decoration: none;
+        color: #0a051e;
+      }
+      hr.vertical {
+        width: 0;
+        height: 20px;
+      }
+      footer > .modos_contacto {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+        padding: 24px 0 32px 0;
+        margin: 0;
+        list-style: none;
+        gap: 18px;
+      }
+      footer > .modos_contacto > li {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+      }
+      footer > .modos_contacto > li > a {
+        margin-left: 5px;
+      }
+      footer > .modos_contacto > li > img {
+        padding-right: 16px;
+        height: 28px;
+        width: 28px;
+      }
+      footer > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 0;
+      }
+      footer > div > .social_icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        list-style: none;
+      }
+      footer > .datos_cliente {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        gap: 30px;
+        list-style: none;
+      }
+      footer > .datos_cliente > li {
+        padding: 0;
+        margin: 0;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 18px;
+      }
+      footer > .datos_cliente > li > a {
+        color: #5e6788;
+        text-decoration: none;
+      }
+      footer > .datos_cliente > li > a:hover {
+        color: #f7052d;
+      }
+      footer > .informacion_adicional {
+        color: #5e6788;
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 16px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        list-style: none;
+        margin-bottom: 48px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>¿No ves el contenido? <a href="#">ingresa aquí</a></div>
+      </header>
+      <section class="bienvenida">
+        <img src="Rimac_logo_v1_red.png" alt="Rimac_Logo_Red" class="logo" />
+        <h3>¡Te damos la bienvenida</h3>
+        <h1>a la familia Rimac!</h1>
+        <h5>Ya puedes disfrutar de tu auto con toda tranquilidad</h5>
+        <div><a href="#">Ingresa a tu cuenta</a></div>
+        <img src="Group 1599966.png" alt="Person" class="persona" />
+      </section>
+      <section class="beneficios">
+        <h4>¡Hola María!</h4>
+        <p>
+          Agradecemos tu confianza con contratar tu <b>Seguro Vehicular</b> con
+          nosotros. <br /><br />
+          Además de mantener tu vehículo protegido, te brindamos beneficios por
+          ser cliente Rimac como:
+        </p>
+        <ul>
+          <li>
+            <img src="icon.png" alt="icon" />
+            Descuentos en gasolina Repsol
+          </li>
+          <li>
+            <img src="IcCraneLight.png" alt="IcCraneLight" />
+            Servicio de grúa, chofer y vehículo de reemplazo
+          </li>
+          <li>
+            <img src="IcAmbulanceLight.png" alt="IcAmbulanceLight" />
+            Orientación médica, servicio de ambulancia y más
+          </li>
+        </ul>
+        <hr />
+      </section>
+      <section class="poliza">
+        <h4>Póliza electrónica</h4>
+        <p>
+          Para mantenerte informado, te enviamos tu <b>póliza electrónica</b> y
+          el <b>condicionado general</b> (en este documento podrás encontrar más
+          detalles y cláusulas vinculadas a tu póliza).
+        </p>
+        <ul>
+          <li>
+            <a href="#"
+              >Descargar pòliza
+              <img src="GlDownloadSolid.png" alt="download_icon_black"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              >Descargar condicionado general
+              <img src="GlDownloadSolid.png" alt="download_icon_black"
+            /></a>
+          </li>
+        </ul>
+        <div>
+          <img src="GlWorldSolid.svg" alt="world_icon" />
+          <p>
+            Recuerda que teniendo una póliza electrónica, colaboramos con el
+            medio ambiente.
+          </p>
+        </div>
+        <hr />
+      </section>
+      <section class="debito">
+        <div>
+          <img src="FiConfirmationLight.png" alt="check_icon" />
+          <div>
+            <h4>
+              Recuerda que puedes afiliarte al débito automático (con opción a
+              financiamiento)
+            </h4>
+            <p>
+              También puedes revisar tu cronograma de pagos y llevar la
+              información de tu seguro siempre contigo desde tu cuenta
+              <a href="#">rimac.com</a> y desde la <b>APP RIMAC</b>
+            </p>
+          </div>
+        </div>
+        <hr />
+      </section>
+      <section class="app">
+        <div>
+          <div>
+            <h4><span>App RIMAC</span>, rápida, sencilla e intuitiva</h4>
+            <p>
+              Escanea el QR y descubre la mejor experiencia para solicitar tus
+              servicios.
+            </p>
+            <div>
+              <a href="#"
+                >Descargar App
+                <img src="gl-md-download.png" alt="download_icon"
+              /></a>
+            </div>
+          </div>
+          <img src="img.png" alt="escanea_app" />
+        </div>
+      </section>
+      <footer class="footer">
+        <h4>Descarga nuestra APP:</h4>
+        <ul class="opciones_descarga">
+          <li>
+            <a href="#">
+              <img src="Group 1597554.png" alt="" />
+              <span>Para <b>Android</b></span>
+            </a>
+            <hr class="vertical" />
+          </li>
+          <li>
+            <a href="#">
+              <img src="Group 1597553.png" alt="" />
+              <span>Para <b>iOS</b></span>
+            </a>
+            <hr class="vertical" />
+          </li>
+          <li>
+            <a href="#">
+              <img src="Group 1597815.png" alt="" />
+              <span>Para <b>Huawei</b></span>
+            </a>
+          </li>
+        </ul>
+        <hr />
+        <h4>¡Estamos para ti en todo momento!</h4>
+        <ul class="modos_contacto">
+          <li>
+            <img src="Group 1597380.png" alt="" />Gestiona tus seguros desde
+            <a href="#">Mi Mundo RIMAC</a>
+          </li>
+          <li>
+            <img src="Group 1597816.png" alt="" />Consulta por whatsApp con
+            <a href="#">Tobi</a>
+          </li>
+          <li>
+            <img src="Group 1597817.png" alt="" />Para emergencias llámanos al
+            <a href="#">01 4111111</a>
+          </li>
+          <li>
+            <img src="Group 1597818.png" alt="" />Conoce nuestros seguros en
+            <a href="#">rimac.com</a>
+          </li>
+          <li>
+            <img src="Group 1597819.png" alt="" />¿Tienes alguna duda
+            particular?
+            <a href="#">escríbenos</a>
+          </li>
+        </ul>
+        <hr />
+        <div>
+          <img src="Rimac_logo_v1_red.png" alt="logo" />
+          <ul class="social_icons">
+            <li>
+              <a href="#"><img src="Group 1597071.png" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="Group 1597073.png" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="Group 1597074.png" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="Group 1597075.png" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="Group 1597821.png" alt="" /></a>
+            </li>
+          </ul>
+        </div>
+        <ul class="datos_cliente">
+          <li><a href="#">Anular suscripción</a></li>
+          <li><a href="#">Actualizar mis datos</a></li>
+        </ul>
+        <ul class="informacion_adicional">
+          <li>
+            <p>
+              Tienes acceso a las novedades de RIMAC desde %%EMAIL%%. Por favor,
+              no respondas a este mensaje, este correo fue enviado desde una
+              dirección de notificaciones y no puede aceptar correo electrónico
+              entrante. Para consultas, escríbenos a
+              <a href="mailto:atencionalcliente@rimac.com.pe"
+                >atencionalcliente@rimac.com.pe</a
+              >. <br /><br />
+              © 2023 RIMAC SEGUROS Y REASEGUROS. Todos los Derechos Reservados.
+            </p>
+          </li>
+          <li>
+            <p>
+              Tienes acceso a las novedades de RIMAC desde %%EMAIL%%. Por favor,
+              no respondas a este mensaje, este correo fue enviado desde una
+              dirección de notificaciones y no puede aceptar correo electrónico
+              entrante. Para consultas, llámanos a nuestro Contact Center
+              Exclusivo
+              <b>RIMAC-BBVA</b> al <b>01 595-9000</b>. <br /><br />
+              © 2023 RIMAC SEGUROS Y REASEGUROS. Todos los Derechos Reservados.
+            </p>
+          </li>
+          <li>
+            <p>
+              Tienes acceso a las novedades de RIMAC desde %%EMAIL%%. Por favor,
+              no respondas a este mensaje, este correo fue enviado desde una
+              dirección de notificaciones y no puede aceptar correo electrónico
+              entrante. Para consultas, escríbenos a
+              <a href="mailto:centrodemonitoreo@rimac.com.pe"
+                >centrodemonitoreo@rimac.com.pe</a
+              >. <br /><br />
+              © 2023 RIMAC SEGUROS Y REASEGUROS. Todos los Derechos Reservados.
+            </p>
+          </li>
+        </ul>
+      </footer>
+    </main>
+  </body>
+</html>
